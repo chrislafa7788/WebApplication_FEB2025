@@ -8,7 +8,7 @@ namespace WebApplication_FEB2025.Repository
         private StoreContext _context;
         public BeerRepository(StoreContext context)
         {
-            _context = context;
+            _context = context; 
         }
         public async Task<IEnumerable<Beer>> Get()
             => await _context.Beers.ToListAsync();
