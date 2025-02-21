@@ -12,26 +12,40 @@ namespace WebApplication_FEB2025.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class BeerController : ControllerBase
-    {        
+    {
         private IValidator<BeerInsertDto> _beerInsertValidator;
 
         private IValidator<BeerUpdateDto> _beerUpdateValidator;
 
-        private ICommonService<BeerDto,BeerInsertDto,BeerUpdateDto> _beerService;
+        private ICommonService<BeerDto, BeerInsertDto, BeerUpdateDto> _beerService;
 
-        public BeerController(IValidator<BeerInsertDto> beerInsertValidator, 
+        public BeerController(IValidator<BeerInsertDto> beerInsertValidator,
             IValidator<BeerUpdateDto> beerUpdateValidator,
-            [FromKeyedServices("beerService")]ICommonService<BeerDto, BeerInsertDto, BeerUpdateDto> beerService)
-        {            
+            [FromKeyedServices("beerService")] ICommonService<BeerDto, BeerInsertDto, BeerUpdateDto> beerService)
+        {
             _beerInsertValidator = beerInsertValidator;
             _beerUpdateValidator = beerUpdateValidator;
             _beerService = beerService;
 
         }
 
+        //[HttpGet]
+        //public async Task<IEnumerable<BeerDto>> Get() => await _beerService.Get();
+
+
         [HttpGet]
-        public async Task<IEnumerable<BeerDto>> Get() => await _beerService.Get();
+        public async Task<BeerDto> Get(){
+
+            return
+            new BeerDto()
+            {
+                Id = 5,
+                Name = "facu",
+                BrandId = 6,
+                Alcohol = 7
+            };
            
+           } 
 
         [HttpGet("{id}")]
         public async Task<ActionResult<BeerDto>> GetById(int id) {
