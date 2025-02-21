@@ -1,1 +1,1 @@
-web: dotnet WebApplication_FEB2025.dll
+web: dotnet out/WebApplication_FEB2025.dll
