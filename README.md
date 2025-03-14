@@ -8,7 +8,7 @@ This is an API designed to insert, delete, update, and retrieve one or all items
 
 ## 🚀 Features
 
-- ✅ CRUD for Beers!
+- ✅ CRUD for Beers!!
 - ✅ 
 
 ---
